@@ -1,0 +1,11 @@
+name: taxo_enhancer
+channels:
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy
+  - pandas
+  - pip
+  - pip :
+    - opentree
+    
