@@ -8,5 +8,5 @@ NB: data have to be formatted according to https://github.com/mandelbrot-project
 3. Lauch the script: only 1 argument needed here, the path to your data directory.
 
 ```console
-python .\src\taxo_info_fetcher.py -p path/to/your/data/directory/
+python ./src/taxo_info_fetcher.py -p path/to/your/data/directory/
 ```
