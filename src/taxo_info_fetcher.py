@@ -23,6 +23,7 @@ parser.add_argument('-p', '--sample_dir_path', required=True,
 
 args = parser.parse_args()
 sample_dir_path = args.sample_dir_path
+sample_dir_path = 'C:/Users/gaudrya.FARMA/Desktop/ordered/'
 
 """ Functions """
 url = 'https://query.wikidata.org/sparql'
@@ -85,9 +86,13 @@ for directory in samples_dir:
       
     if pd.isna(metadata['organism_species'][0]) == False :
       taxo_df = taxa_lineage_appender(metadata, 'organism_species', True, path_to_results_folders, directory)
+      if taxo_df['matched_name'][0] == 'None':
+        print(f'No matched species for sample {directory}')
+        continue
       wd_df = wd_taxo_fetcher_from_ott(url,taxo_df['ott_id'][0])
       print(wd_df['wd.value'][0])
       path_taxo_df = os.path.join(path_to_results_folders, directory + '_taxo_metadata.tsv')
       taxo_df.join(wd_df).to_csv(path_taxo_df, sep='\t')
     else:
       continue
+    
