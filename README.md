@@ -1,6 +1,7 @@
 # taxo_enhancer
 Retrieve taxonomy and Wikidata ID from sample's species.  
-NB: data have to be formatted according to https://github.com/mandelbrot-project/data_organization.
+
+⚙️ Workflow part of [enpkg_workflow](https://github.com/mandelbrot-project/enpkg_workflow).  
 
 ## Required starting architecture
 
@@ -13,6 +14,7 @@ data/
 |
 └─── sample_n/
 ```
+See https://github.com/mandelbrot-project/data_organization for data organization.
 
 ## Workflow
 
