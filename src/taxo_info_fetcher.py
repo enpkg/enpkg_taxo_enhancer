@@ -79,11 +79,11 @@ for directory in samples_dir:
         continue
     except NotADirectoryError:
       continue
-    path_to_results_folders = os.path.join(path, directory, 'taxo_output/')
-    if not os.path.isdir(path_to_results_folders):
-      os.makedirs(path_to_results_folders)
       
     if pd.isna(metadata['organism_species'][0]) == False :
+      path_to_results_folders = os.path.join(path, directory, 'taxo_output/')
+      if not os.path.isdir(path_to_results_folders):
+        os.makedirs(path_to_results_folders)
       taxo_df = taxa_lineage_appender(metadata, 'organism_species', True, path_to_results_folders, directory)
       if taxo_df['matched_name'][0] == 'None':
         print(f'No matched species for sample {directory}')
