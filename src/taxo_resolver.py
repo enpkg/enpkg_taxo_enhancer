@@ -41,9 +41,6 @@ def taxa_lineage_appender(samples_metadata, organism_header, do_taxo_resolving, 
     samples_metadata[organism_header].dropna(inplace=True)
     samples_metadata[organism_header] = samples_metadata[organism_header].str.lower()
     species = samples_metadata[organism_header].unique()
-    len_species = len(species)
-
-    print(f"{len_species} unique species has been selected from the metadata table for sample id: {samples_metadata['sample_id'][0]}")
 
     if do_taxo_resolving == True:
 
