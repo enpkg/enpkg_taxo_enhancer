@@ -23,7 +23,6 @@ parser.add_argument('-p', '--sample_dir_path', required=True,
 
 args = parser.parse_args()
 sample_dir_path = args.sample_dir_path
-sample_dir_path = 'C:/Users/gaudrya.FARMA/Desktop/ordered/'
 
 """ Functions """
 url = 'https://query.wikidata.org/sparql'
