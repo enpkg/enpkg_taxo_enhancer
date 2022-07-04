@@ -64,7 +64,7 @@ for directory in samples_dir:
     try:
         metadata = pd.read_csv(metadata_path, sep='\t')
     except FileNotFoundError:
-        continue
+      continue
     except NotADirectoryError:
       continue
       
