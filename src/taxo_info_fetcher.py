@@ -71,7 +71,7 @@ for directory in samples_dir:
     if pd.isna(metadata['organism_species'][0]) == False :
       path_to_results_folders = os.path.join(path, directory, 'taxo_output/')
       if (os.path.isdir(path_to_results_folders)) & (force_res is False):
-        print(f'sample {directory} alredy processed')
+        print(f'sample {directory} allready processed')
         continue
       if not os.path.isdir(path_to_results_folders):
         os.makedirs(path_to_results_folders)
