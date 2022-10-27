@@ -1,4 +1,4 @@
-# taxo_enhancer
+# enpkg_taxo_enhancer
 Retrieve taxonomy and Wikidata ID from sample's species.  
 
 ⚙️ Workflow part of [enpkg_workflow](https://github.com/enpkg/enpkg_workflow).  
