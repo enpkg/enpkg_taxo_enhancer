@@ -15,7 +15,7 @@ os.chdir(p)
 parser = argparse.ArgumentParser(
     formatter_class=argparse.RawDescriptionHelpFormatter,
     description=textwrap.dedent('''\
-         This script creates a <sample>_taxo_metadata.tsv file with the WD ID of the samples species and its OTT taxonomy
+         This script creates a <sample>_taxo_metadata.tsv file with the WD ID of the samples taxon and its OTT taxonomy
          --------------------------------
             You should just enter the path to the directory where samples folders are located
         '''))
@@ -72,10 +72,10 @@ for directory in samples_dir:
     if metadata['sample_type'][0] == 'blank' :
       print(f'Sample {directory} is a blank sample, skipping ...')
       continue
-    if metadata['organism_species'][0] == 'nd' :
+    if metadata['source_taxon'][0] == 'nd' :
       print(f'No organism species defined for sample {directory}, skipping ...')
       continue
-    if pd.isna(metadata['organism_species'][0]) == False :
+    if pd.isna(metadata['source_taxon'][0]) == False :
       path_to_results_folders = os.path.join(path, directory, 'taxo_output/')
       if (os.path.isdir(path_to_results_folders)) & (force_res is False):
         print(f'sample {directory} already processed')
@@ -83,7 +83,7 @@ for directory in samples_dir:
       if not os.path.isdir(path_to_results_folders):
         os.makedirs(path_to_results_folders)
       print(f'processing sample {directory}')
-      taxo_df = taxa_lineage_appender(metadata, 'organism_species', True, path_to_results_folders, directory)
+      taxo_df = taxa_lineage_appender(metadata, 'source_taxon', True, path_to_results_folders, directory)
       if taxo_df['matched_name'][0] == 'None':
         print(f'No matched species for sample {directory}')
         no_match.append(directory)
