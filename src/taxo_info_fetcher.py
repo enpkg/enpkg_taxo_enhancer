@@ -7,8 +7,12 @@ from taxo_resolver import *
 from pathlib import Path
 import argparse
 import textwrap
+import yaml
+import git
+import opentree
+from opentree import OT
 
-p = Path(__file__).parents[2]
+p = Path(__file__).parents[1]
 os.chdir(p)
 
 """ Argument parser """
@@ -26,6 +30,16 @@ parser.add_argument('-f', '--force_research', default=False, action="store_true"
 args = parser.parse_args()
 sample_dir_path = args.sample_dir_path
 force_res = args.force_research
+
+""" Parameters used """
+params = {'git':[], 'package_versions':[], 'ott':[]}
+
+params['git'].append({'git_commit' : git.Repo(search_parent_directories=True).head.object.hexsha})
+params['git'].append({'git_commit_link' : f'https://github.com/enpkg/enpkg_mn_isdb_taxo/tree/{git.Repo(search_parent_directories=True).head.object.hexsha}'})
+
+params['package_versions'].append({'opentree' :opentree.__version__})
+
+params['ott'].append(OT.about()['taxonomy_about'])
 
 """ Functions """
 url = 'https://query.wikidata.org/sparql'
@@ -75,7 +89,7 @@ for directory in samples_dir:
     if metadata['source_taxon'][0] == 'nd' :
       print(f'No organism species defined for sample {directory}, skipping ...')
       continue
-    if pd.isna(metadata['source_taxon'][0]) == False :
+    if pd.isna(metadata['source_taxon'][0]) is False :
       path_to_results_folders = os.path.join(path, directory, 'taxo_output/')
       if (os.path.isdir(path_to_results_folders)) & (force_res is False):
         print(f'sample {directory} already processed')
@@ -91,6 +105,10 @@ for directory in samples_dir:
       wd_df = wd_taxo_fetcher_from_ott(url,taxo_df['ott_id'][0])
       path_taxo_df = os.path.join(path_to_results_folders, directory + '_taxo_metadata.tsv')
       taxo_df.join(wd_df).to_csv(path_taxo_df, sep='\t')
+
+      with open(os.path.join(path_to_results_folders, 'params.yaml'), 'w') as file:
+        yaml.dump(params, file)
+
     else:
       continue
 

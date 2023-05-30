@@ -5,7 +5,9 @@ dependencies:
   - python=3.9
   - numpy
   - pandas
+  - pyyaml
   - pip
   - pip :
     - opentree
+    - GitPython
     

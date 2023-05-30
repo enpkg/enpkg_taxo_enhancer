@@ -1,5 +1,4 @@
 import pandas as pd
-import os
 from opentree import OT
 import json
 from pandas import json_normalize
