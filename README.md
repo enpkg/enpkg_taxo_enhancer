@@ -36,6 +36,7 @@ data/
 |            └─── sample_a_species.json                # OTT matched species
 |            └─── sample_a_taxon_info.json             # OTT taxonomy for matched species
 |            └─── sample_a_taxo_metadata.tsv           # metadata enhanced with taxonomy
+|            └─── params.yaml                          # The parameters used to generate the results
 |
 └─── sample_b/
 |
