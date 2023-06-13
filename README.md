@@ -48,5 +48,5 @@ data/
 ```
 
 ## Citations
-If you use thie ENPKG module, please cite:    
+If you use this ENPKG module, please cite:    
 [McTavish et al. 2021, Systematic Biology](https://academic.oup.com/sysbio/article/70/6/1295/6273200)
