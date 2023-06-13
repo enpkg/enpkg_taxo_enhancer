@@ -1,6 +1,7 @@
 # enpkg_taxo_enhancer
 
 ![release_badge](https://img.shields.io/github/v/release/enpkg/enpkg_taxo_enhancer)
+![license](https://img.shields.io/github/license/enpkg/enpkg_taxo_enhancer)
 
 Retrieve taxonomy and Wikidata ID from sample's species.  
 
