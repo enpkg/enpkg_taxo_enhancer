@@ -3,7 +3,11 @@
 ![release_badge](https://img.shields.io/github/v/release/enpkg/enpkg_taxo_enhancer)
 ![license](https://img.shields.io/github/license/enpkg/enpkg_taxo_enhancer)
 
-Retrieve taxonomy and Wikidata ID from sample's species.  
+<p align="center">
+ <img src="https://github.com/enpkg/enpkg_workflow/blob/main/logo/enpkg_logo_full.png" width="200">
+</p>
+
+Retrieve taxonomy and Wikidata ID from the biosource of ENPKG formatted samples.  
 
 ⚙️ Module part of [enpkg_workflow](https://github.com/enpkg/enpkg_workflow).  
 
