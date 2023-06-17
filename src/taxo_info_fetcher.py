@@ -35,7 +35,7 @@ force_res = args.force_research
 params = {'git':[], 'package_versions':[], 'ott':[]}
 
 params['git'].append({'git_commit' : git.Repo(search_parent_directories=True).head.object.hexsha})
-params['git'].append({'git_commit_link' : f'https://github.com/enpkg/enpkg_mn_isdb_taxo/tree/{git.Repo(search_parent_directories=True).head.object.hexsha}'})
+params['git'].append({'git_commit_link' : f'https://github.com/enpkg/enpkg_taxo_enhancer/tree/{git.Repo(search_parent_directories=True).head.object.hexsha}'})
 
 params['package_versions'].append({'opentree' :opentree.__version__})
 
