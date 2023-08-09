@@ -10,4 +10,5 @@ dependencies:
   - pip :
     - opentree==1.0.1
     - GitPython==3.1.31
+    - compress_json
     
